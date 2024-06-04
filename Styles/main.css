@@ -1,14 +1,17 @@
 .main-menu{
   display: flex;
+
   flex-direction: column;
   align-items: center;
 }
 
 .main-menu .top-section{
   display: flex;
+
   align-items: center;
   justify-content: center;
   gap: 1em;
+
   text-align: center;
 }
 
@@ -22,6 +25,7 @@
 
 .main-menu .bottom-section{
   display: flex;
+
   flex-direction: column;
   gap: 5em;
 
@@ -29,15 +33,15 @@
 }
 
 .main-menu .bottom-section button{
-  padding: 2em 4em;
   width: 100%;
+  padding: 2em 4em;
 
   border-radius: 10px;
   border: 1px solid var(--white);
+  
   background: none;
 
   position: relative;
-
   z-index: 1;
 }
 

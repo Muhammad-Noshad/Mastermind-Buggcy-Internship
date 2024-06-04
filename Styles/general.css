@@ -22,16 +22,19 @@ body{
   background-image: linear-gradient(to right, #608a9c, #A5BEC1);
   background-repeat: no-repeat;
   background-attachment: fixed;
+
   font-family: 'Havelock';
   font-size: 1.5rem;
+  
   color: var(--white);
 }
 
 button{
   font-family: 'Havelock';
-  cursor: pointer;
-  border: none;
   color: var(--white);
+
+  border: none;
+  cursor: pointer;
 }
 
 img{
