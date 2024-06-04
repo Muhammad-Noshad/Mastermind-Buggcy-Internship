@@ -1,0 +1,58 @@
+@font-face {
+  font-family: 'Havelock';
+  src: url("/Fonts/Havelock-Titling-Regular.otf");
+}
+
+*, *::after, *::before{
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+:root{
+  --white: #FFFFFF;
+  --black: #1b1b1b;
+}
+
+body{
+  background-image: linear-gradient(to right, #608a9c, #A5BEC1);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Havelock';
+  font-size: 1.5rem;
+  color: var(--white);
+}
+
+button{
+  font-family: 'Havelock';
+  cursor: pointer;
+  border: none;
+  color: var(--white);
+}
+
+img{
+  max-width: 100%;
+}
+
+a{
+  text-decoration: none;
+}
+
+.container{
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+@media (max-width: 680px) {
+  html{
+    font-size: 40%;
+  }
+
+  button{
+    font-size: 100%;
+  }
+}

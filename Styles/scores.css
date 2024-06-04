@@ -1,0 +1,40 @@
+p, h3{
+  padding: 0.45em 0;
+}
+
+p{
+  text-align: center;
+}
+
+h3{
+  margin: 0;
+}
+
+.wrapper *{
+  border: white 1px solid;
+}
+
+.wrapper h3:first-of-type{
+  border-top-left-radius: 25px;
+}
+
+.wrapper h3:last-of-type{
+  border-top-right-radius: 25px;
+}
+
+.wrapper p:last-of-type{
+  border-bottom-right-radius: 25px;
+}
+
+.wrapper p:nth-last-of-type(2){
+  border-bottom-left-radius: 25px;
+}
+
+.wrapper{
+  border-radius: 25px;
+}
+
+.wrapper{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MasterMind</title>
+  <link rel="shortcut icon" href="../Images/MasterMind-Logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="../Styles/general.css">
+  <link rel="stylesheet" href="../Styles/shared.css">
+</head>
+<body>
+  <h1>Mastermind</h1>
+  <section class="instructions">
+    <div class="container">
+      <h2>Controls</h2>
+      <ol>
+        <li>Click on any color on the bottom section of the mastermind game board to select that color.</li>
+        <li>After selecting a color, click on any empty big circle of currently active row to place the selected color there.</li>
+        <li>Click on the check button to see how close your guess was.</li>
+      </ol>
+      <h2>Objective</h2>
+      <p>The objective of Mastermind is to guess the secret code created by the computer within a limited number of attempts. The code is a sequence of colored pegs, and you need to guess the correct colors in the correct order.</p>
+  
+      <h2>How to Play</h2>
+      <ol>
+          <li>The computer generates a random secret code at the beginning of the game. The code is a sequence of 4 colors. The colors can't repeat.</li>
+          <li>You will have a certain number of attempts to guess the secret code. Each guess consists of a sequence of 4 colors.</li>
+          <li>To make a guess, select a color for each position in the sequence and submit your guess.</li>
+          <li>After each guess, you will receive feedback in the form of red and white small circles adjacent to the row where you place your guess:
+              <ul>
+                  <li><strong>Red small circle:</strong><br> A red small circle indicates that one of your guessed colors is correct and in the correct position.</li>
+                  <li><strong>White small circle:</strong><br> A white small circle indicates that one of your guessed colors is correct but in the wrong position.</li>
+                  <li><strong>Dark small circle:</strong><br> A dark small circle indicates that none of the guessed colors are correct.</li>
+              </ul>
+          </li>
+          <li>Use the feedback to refine your guesses. Repeat the process until you either guess the correct code or run out of attempts.</li>
+      </ol>
+  
+      <h2>Winning the Game</h2>
+      <p>You win the game if you correctly guess the secret code within the allowed number of attempts. If you run out of attempts, you lose.</p>
+  
+      <h2>Scoring</h2>
+      <p>You will be given a score based upon the number of guess attempts. The lesser the attempts the better the score.</p>
+      <ul>
+        <li><strong>Max obtainable score</strong>: 100</li>
+        <li><strong>Min obtainable score</strong>: 0</li>
+      </ul>
+
+      <h2>Example</h2>
+      <p>Suppose the secret code is Red, Blue, Green, Yellow.</p>
+      <p>You guess: Red, Green, Blue, Purple.</p>
+      <p>The feedback would be:
+          <ul>
+              <li>1 Red small circle (Red is correct and in the correct position).</li>
+              <li>2 White small circles (Green and Blue are correct colors but in the wrong positions).</li>
+          </ul>
+      </p>
+  
+      <p>Continue making guesses using the feedback until you crack the code or exhaust your attempts. Good luck!</p>
+    </div>
+  </section>
+
+  <script src="../Scripts/main.js" type="module"></script>
+</body>
+</html>

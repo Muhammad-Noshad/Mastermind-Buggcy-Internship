@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MasterMind</title>
+  <link rel="shortcut icon" href="../Images/MasterMind-Logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="../Styles/general.css">
+  <link rel="stylesheet" href="../Styles/start.css">
+</head>
+<body>
+  <h1>Mastermind</h1>
+  <p style="text-align: center; font-size: 2rem;" class="timer">00:00:00</p>
+  <section class="game-board">
+    <div class="container">
+      <div class="top-section">
+        <div class="row computer-row computer-row-js">
+          <div class="big-circle"><p>?</p></div>
+          <div class="big-circle"><p>?</p></div>
+          <div class="big-circle"><p>?</p></div>
+          <div class="big-circle"><p>?</p></div>
+        </div>
+        
+        <div class="row">
+          <div class="guess-section row">
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+          </div>
+          <div class="validation-section">
+            <div class="row">
+              <div class="small-circle"></div>
+              <div class="small-circle"></div>  
+            </div>
+            <div class="row">
+              <div class="small-circle"></div>
+              <div class="small-circle"></div> 
+            </div>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="guess-section row">
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+          </div>
+          <div class="validation-section">
+            <div class="row">
+              <div class="small-circle"></div>
+              <div class="small-circle"></div>  
+            </div>
+            <div class="row">
+              <div class="small-circle"></div>
+              <div class="small-circle"></div> 
+            </div>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="guess-section row">
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+          </div>
+          <div class="validation-section">
+            <div class="row">
+              <div class="small-circle"></div>
+              <div class="small-circle"></div>  
+            </div>
+            <div class="row">
+              <div class="small-circle"></div>
+              <div class="small-circle"></div> 
+            </div>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="guess-section row">
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+          </div>
+          <div class="validation-section">
+            <div class="row">
+              <div class="small-circle"></div>
+              <div class="small-circle"></div>  
+            </div>
+            <div class="row">
+              <div class="small-circle"></div>
+              <div class="small-circle"></div> 
+            </div>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="guess-section row">
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+          </div>
+          <div class="validation-section">
+            <div class="row">
+              <div class="small-circle"></div>
+              <div class="small-circle"></div>  
+            </div>
+            <div class="row">
+              <div class="small-circle"></div>
+              <div class="small-circle"></div> 
+            </div>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="guess-section row">
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+          </div>
+          <div class="validation-section">
+            <div class="row">
+              <div class="small-circle"></div>
+              <div class="small-circle"></div>  
+            </div>
+            <div class="row">
+              <div class="small-circle"></div>
+              <div class="small-circle"></div> 
+            </div>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="guess-section row">
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+          </div>
+          <div class="validation-section">
+            <div class="row">
+              <div class="small-circle"></div>
+              <div class="small-circle"></div>  
+            </div>
+            <div class="row">
+              <div class="small-circle"></div>
+              <div class="small-circle"></div> 
+            </div>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="guess-section row">
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+          </div>
+          <div class="validation-section">
+            <div class="row">
+              <div class="small-circle"></div>
+              <div class="small-circle"></div>  
+            </div>
+            <div class="row">
+              <div class="small-circle"></div>
+              <div class="small-circle"></div> 
+            </div>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="guess-section row">
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+            <div class="big-circle"></div>
+          </div>
+          <div class="validation-section">
+            <div class="row">
+              <div class="small-circle"></div>
+              <div class="small-circle"></div>  
+            </div>
+            <div class="row">
+              <div class="small-circle"></div>
+              <div class="small-circle"></div> 
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bottom-section">
+        <div class="color-choices color-choices-js">
+          <div class="row">
+            <div class="big-circle red"></div>
+            <div class="big-circle green"></div>
+            <div class="big-circle blue"></div>
+            <div class="big-circle yellow"></div>
+          </div>
+          <div class="row">
+            <div class="big-circle brown"></div>
+            <div class="big-circle orange"></div>
+            <div class="big-circle black"></div>
+            <div class="big-circle white"></div>
+          </div>
+        </div>
+        <div class="controls">
+          <p class="message">&nbsp;</p>
+          <button>Check</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="end-screen hide">
+    <h1></h1>
+    <h1></h1>
+    <p></p>
+    <p></p>
+    <p></p>
+    <button>Play again</button>
+    <a href="../main.html"><button>Back to Mainmenu</button></a>
+  </section>
+
+  <script src="../Scripts/main.js" type="module"></script>
+</body>
+</html>
