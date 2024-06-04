@@ -1,12 +1,10 @@
+// Retreive score from local storage
 let score = JSON.parse(localStorage.getItem('score'));
+
+// Retreive time from local storage
 let time = JSON.parse(localStorage.getItem('time'));
 
-console.log(localStorage);
-console.log(score);
-console.log(time);
-localStorage.clear();
-
-if(score === null){
+if(score === null){   // If there is no score
   const pElemScore = document.createElement('p');
   pElemScore.textContent = 'No scores to show!';
 
@@ -16,7 +14,7 @@ if(score === null){
   document.querySelector('.wrapper').appendChild(pElemScore);
   document.querySelector('.wrapper').appendChild(pElemTime);
 }
-else{
+else{   // Otherwise, display the scores and times
   let pElemScore;
   let pElemTime;
 

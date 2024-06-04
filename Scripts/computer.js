@@ -7,28 +7,18 @@ function generateCode(){
 
   for(let x = 0; x < code.length; x++){
     temp = generateRandomNum();
-    if(!code.includes(colors[temp])){
-      code[x] = colors[temp];
+    
+    if(!code.includes(colors[temp])){ 
+      code[x] = colors[temp];   // If color is not already present in the code
     }
     else{
-      x--;
+      x--;    // If color is already present, decrement x to indicate no color was inserted
     }
   }
 }
 
-const computerRow = document.querySelector('.computer-row-js');
-
-// Shows code in the first row of the game board
-function showCode() {
-  for(let x = 0; x < computerRow.childElementCount; x++){
-    computerRow.children[x].style.backgroundColor = code[x];
-  }
-}
-
-// Handles initializing and showing code
+// Handles initializing code and starting the timer
 export function initializeCode(){
   generateCode();
-  // showCode();
   startTimer();
-  console.log(code);
 }
