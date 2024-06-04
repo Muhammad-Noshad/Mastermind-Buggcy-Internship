@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Havelock';
-  src: url("Fonts/Havelock-Titling-Regular.otf");
+  src: url("../Fonts/Havelock-Titling-Regular.woff");
 }
 
 *, *::after, *::before{
