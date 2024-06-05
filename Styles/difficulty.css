@@ -4,42 +4,7 @@
 }
 
 .difficulty .container button{
-  width: 100%;
   padding: 1.5em 2em;
-
-  border-radius: 10px;
-  border: 1px solid var(--white);
-  
-  background: none;
-
-  position: relative;
-  z-index: 1;
-}
-
-.difficulty .container button::before{
-  content: '';
-
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-  background-color: var(--white);
-  border-radius: 10px;
-  z-index: -1;
-  transform: scaleX(0);
-  transition: all linear 300ms;
-}
-
-.difficulty .container button:hover::before{
-  transform: scaleX(1);
-}
-
-.difficulty .container button:hover
-{
-  color: var(--black);
-  transition: all linear 300ms;
 }
 
 .btn-active{

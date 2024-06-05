@@ -99,44 +99,8 @@ h1{
 
 .game-board .bottom-section .controls button,
 .end-screen button{
+  width: fit-content;
   padding: 1em 4em;
-
-  border-radius: 10px;
-  border: 1px solid var(--white);
-  background: none;
-
-  position: relative;
-
-  z-index: 1;
-
-}
-
-.game-board .bottom-section .controls button::before,
-.end-screen button::before{
-  content: '';
-
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-  background-color: var(--white);
-  border-radius: 10px;
-  z-index: -1;
-  transform: scaleX(0);
-  transition: all linear 300ms;
-}
-
-.game-board .bottom-section .controls button:hover::before,
-.end-screen button:hover::before{
-  transform: scaleX(1);
-}
-
-.game-board .bottom-section .controls button:hover,
-.end-screen button:hover{
-  color: var(--black);
-  transition: all linear 300ms;
 }
 
 .error-message{
