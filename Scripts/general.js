@@ -182,3 +182,16 @@ function saveScore(){
 export function retrieveScore(){
   score = JSON.parse(localStorage.getItem('score')) || [];
 }
+
+// Checks if duplicates are allowed
+let allowDuplicates;
+
+// Retieves allowDuplicates from local storage
+export function retrieveAllowDuplicates(){
+  allowDuplicates = JSON.parse(localStorage.getItem('allowDuplicates')) || false;
+}
+
+// Returns allow duplicates
+export function getAllowDuplicates(){
+  return allowDuplicates;
+}

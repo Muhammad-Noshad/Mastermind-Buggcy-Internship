@@ -1,5 +1,5 @@
 const message = document.querySelector('.message');
-let timeoutId = '';
+let timeoutId;
 
 // A function for displaying a message
 export function showMessage(text, color = 'white'){

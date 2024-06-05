@@ -1,18 +1,32 @@
 import { showMessage } from "./message.js";
-import { initializeCode } from "./computer.js";
-import { setSelectedColor, getSelectedColor, getCurrentRow, userGuess, emptyUserGuess, validation, decrementCurrentRow, retrieveScore, retrieveTime } from "./general.js";
+import { generateCode } from "./code-generator.js";
+import { setSelectedColor, getSelectedColor, getCurrentRow, userGuess, emptyUserGuess, validation, decrementCurrentRow, retrieveScore, retrieveTime, retrieveAllowDuplicates, startTimer } from "./general.js";
 import { validateGuess } from "./validate-guess.js";
+import { addToClassList, removeFromClassList, replaceInClassList } from "./utils/manipulate-class-list.js";
 
-// Retrieving player's previous score if any
-retrieveScore();
-
-// Retrieving player's previous time if any
-retrieveTime();
-
-// Initializing code (computer guess)
-initializeCode();
-
+// Color pallette from which the user can pick from
 const colorChoiceRows = document.querySelectorAll('.color-choices-js .row');
+
+// Represents Big circles in the game board which are currently active (clickable)
+let guessSectionRow = document.querySelectorAll('.guess-section');
+
+// Button at the end of the game board
+const checkButton = document.querySelector('.controls button');
+
+// Represents small circles in the active row
+const validationSection = document.querySelectorAll('.validation-section');
+
+// Initializes the game-board.js
+initializeGameBoard();
+
+function initializeGameBoard(){
+  retrieveScore();  // Retrieving player's previous score if any
+  retrieveTime(); // Retrieving player's previous time if any
+  retrieveAllowDuplicates();  // Retrieving difficulty setting
+  generateCode(); // Generating code
+  updateRow();  // Initializes the row
+  startTimer(); // Starts timer
+}
 
 // Getting the color selected by the user
 colorChoiceRows.forEach((row) => {
@@ -25,11 +39,6 @@ colorChoiceRows.forEach((row) => {
   }
 });
 
-let guessSectionRow = document.querySelectorAll('.guess-section');
-
-//Initializing the row
-updateRow();
-
 // Keeping track to which row the game has reached
 function updateRow(){
   for(const child of guessSectionRow[getCurrentRow()].children){
@@ -37,10 +46,10 @@ function updateRow(){
     child.addEventListener('click', () => {
       if(getSelectedColor()){   // If a color has been selected prrior to clicking
         if(child.classList.length === 1){ // If no color is already being displayed, display this one
-          child.classList.add(getSelectedColor());
+          addToClassList(child, getSelectedColor());
         }
         else{ // If a color is already being displayed, then replace that color with currently selected one
-          child.classList.replace(child.classList[child.classList.length-1], getSelectedColor());
+          replaceInClassList(child, child.classList[child.classList.length-1], getSelectedColor());
         }
         
         showMessage(`${getSelectedColor()} placed!`);
@@ -49,7 +58,7 @@ function updateRow(){
       else{ // If no color has been selected prior to clicking
         if(child.classList.length > 1){ // If there is a color being displayed, remove it
           showMessage(`${child.classList[child.classList.length-1]} removed!`);
-          child.classList.remove(child.classList[child.classList.length-1]);
+          removeFromClassList(child, child.classList[child.classList.length-1]);
         }
         else{ // Otherwise, show an error message
           showMessage('Please select a color first!', 'red');
@@ -58,8 +67,6 @@ function updateRow(){
     });
   }  
 }
-
-const checkButton = document.querySelector('.controls button');
 
 // Checking if the check button is pressed
 checkButton.addEventListener('click', () => {
@@ -82,13 +89,16 @@ checkButton.addEventListener('click', () => {
   if(isGuessValid){
     validateGuess();
     showValidation();
-    removeCurrRowEventList();
+    removeCurrentRowEventList();
     decrementCurrentRow();
     updateRow();
   }
 });
 
-const validationSection = document.querySelectorAll('.validation-section');
+// Removing current row's event listener before moving to the next one
+function removeCurrentRowEventList(){
+  guessSectionRow[getCurrentRow()].replaceWith(guessSectionRow[getCurrentRow()].cloneNode(true));
+}
 
 // Displaying how close the user's guess was
 function showValidation(){
@@ -100,9 +110,4 @@ function showValidation(){
       circle.style.backgroundColor = validation[counter++];
     }
   }
-}
-
-// Removing current row's event listener before moving to the next one
-function removeCurrRowEventList(){
-  guessSectionRow[getCurrentRow()].replaceWith(guessSectionRow[getCurrentRow()].cloneNode(true));
 }

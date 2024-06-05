@@ -4,6 +4,7 @@ import { setIsGameOver, getIsGameOver, setIsPlayerWon, getCurrentRow, userGuess,
 export function checkGameOver(){
   let isEqual = true;   // Assume that the userGuess and code are the same
 
+  // Match user guess
   for (let x = 0; x < code.length; x++) {
     if(!(userGuess[x] === code[x])){
       // If even one of the items of userGuess does not match the code item
