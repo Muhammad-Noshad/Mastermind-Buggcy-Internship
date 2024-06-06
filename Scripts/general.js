@@ -1,3 +1,5 @@
+import { toggleCheckButton } from "./game-board.js";
+
 // Range of available colors
 export const colors = ['red', 'green', 'blue', 'yellow', 'brown', 'orange', 'black', 'white'];
 
@@ -194,4 +196,25 @@ export function retrieveAllowDuplicates(){
 // Returns allow duplicates
 export function getAllowDuplicates(){
   return allowDuplicates;
+}
+
+let circlesFilled = 0;
+
+export function incrementCirclesFilled(){
+  circlesFilled++;
+  toggleCheckButton();
+}
+
+export function decrementCirclesFilled(){
+  circlesFilled--;
+  toggleCheckButton();
+}
+
+export function resetCirclesFilled(){
+  circlesFilled = 0;
+  toggleCheckButton();
+}
+
+export function getCirclesFilled(){
+  return circlesFilled;
 }

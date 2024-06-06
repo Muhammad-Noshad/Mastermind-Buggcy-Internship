@@ -36,3 +36,17 @@ button:hover
   color: var(--black);
   transition: all linear 300ms;
 }
+
+.disabled{
+  color: grey;
+  border: 1px solid grey;
+}
+
+.disabled:hover::before{
+  transform: scaleX(0);
+}
+
+.disabled:hover{
+  color: grey;
+  cursor:not-allowed;
+}

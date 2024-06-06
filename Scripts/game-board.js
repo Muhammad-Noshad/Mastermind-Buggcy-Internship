@@ -1,6 +1,6 @@
 import { showMessage } from "./message.js";
 import { generateCode } from "./code-generator.js";
-import { setSelectedColor, getSelectedColor, getCurrentRow, userGuess, emptyUserGuess, validation, decrementCurrentRow, retrieveScore, retrieveTime, retrieveAllowDuplicates, startTimer } from "./general.js";
+import { setSelectedColor, getSelectedColor, getCurrentRow, userGuess, emptyUserGuess, validation, decrementCurrentRow, retrieveScore, retrieveTime, retrieveAllowDuplicates, startTimer, incrementCirclesFilled, decrementCirclesFilled, getCirclesFilled, resetCirclesFilled } from "./general.js";
 import { validateGuess } from "./validate-guess.js";
 import { addToClassList, removeFromClassList, replaceInClassList } from "./utils/manipulate-class-list.js";
 
@@ -47,6 +47,7 @@ function updateRow(){
       if(getSelectedColor()){   // If a color has been selected prrior to clicking
         if(child.classList.length === 1){ // If no color is already being displayed, display this one
           addToClassList(child, getSelectedColor());
+          incrementCirclesFilled();
         }
         else{ // If a color is already being displayed, then replace that color with currently selected one
           replaceInClassList(child, child.classList[child.classList.length-1], getSelectedColor());
@@ -59,6 +60,7 @@ function updateRow(){
         if(child.classList.length > 1){ // If there is a color being displayed, remove it
           showMessage(`${child.classList[child.classList.length-1]} removed!`);
           removeFromClassList(child, child.classList[child.classList.length-1]);
+          decrementCirclesFilled();
         }
         else{ // Otherwise, show an error message
           showMessage('Please select a color first!', 'red');
@@ -70,28 +72,28 @@ function updateRow(){
 
 // Checking if the check button is pressed
 checkButton.addEventListener('click', () => {
-  let isGuessValid = true;
-
-  for(const child of guessSectionRow[getCurrentRow()].children){
-    // If any of the circle of current active row is empty
-    if(child.classList.length === 1){
-      emptyUserGuess();
-      isGuessValid = false;
-      showMessage('Please Fill in all four dots!', 'red')
-      break;
+  if(!checkButton.classList.contains('disabled')){
+    let isGuessValid = false;
+    
+    if(getCirclesFilled() === 4){
+      isGuessValid = true;
     }
 
-    // Otherwise, push user's guessed colors into userGuess array
-    userGuess.push(child.classList[child.classList.length - 1]);
+    if(isGuessValid){ // If the guess is valid (all circles of active row are filled)
+      for(const child of guessSectionRow[getCurrentRow()].children){
+        userGuess.push(child.classList[child.classList.length - 1]);
+      }
+
+      validateGuess();
+      showValidation();
+      removeCurrentRowEventList();
+      decrementCurrentRow();
+      updateRow();
+      resetCirclesFilled();
+    }
   }
-  
-  // If the guess is valid (all circles of active row are filled)
-  if(isGuessValid){
-    validateGuess();
-    showValidation();
-    removeCurrentRowEventList();
-    decrementCurrentRow();
-    updateRow();
+  else{
+    showMessage('Please Fill in all four dots!', 'red');
   }
 });
 
@@ -109,5 +111,14 @@ function showValidation(){
     for(const circle of row.children){
       circle.style.backgroundColor = validation[counter++];
     }
+  }
+}
+
+export function toggleCheckButton(){
+  if(getCirclesFilled() === 4){
+    removeFromClassList(checkButton, 'disabled');
+  }
+  else{
+    addToClassList(checkButton, 'disabled');
   }
 }
