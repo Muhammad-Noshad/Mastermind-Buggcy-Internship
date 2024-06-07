@@ -1,8 +1,9 @@
 import { showMessage } from "./message.js";
 import { generateCode } from "./code-generator.js";
-import { setSelectedColor, getSelectedColor, getCurrentRow, userGuess, emptyUserGuess, validation, decrementCurrentRow, retrieveScore, retrieveTime, retrieveAllowDuplicates, startTimer, incrementCirclesFilled, decrementCirclesFilled, getCirclesFilled, resetCirclesFilled } from "./general.js";
+import { setSelectedColor, getSelectedColor, getCurrentRow, userGuess, emptyUserGuess, validation, decrementCurrentRow, retrieveScore, retrieveTime, retrieveAllowDuplicates, startTimer, incrementCirclesFilled, decrementCirclesFilled, getCirclesFilled, resetCirclesFilled, emptyValidation } from "./general.js";
 import { validateGuess } from "./validate-guess.js";
 import { addToClassList, removeFromClassList, replaceInClassList } from "./utils/manipulate-class-list.js";
+import { checkGameOver } from "./game-over.js";
 
 // Color pallette from which the user can pick from
 const colorChoiceRows = document.querySelectorAll('.color-choices-js .row');
@@ -90,6 +91,9 @@ checkButton.addEventListener('click', () => {
 
       validateGuess();
       showValidation();
+      checkGameOver();
+      emptyUserGuess();
+      emptyValidation();
       removeCurrentRowEventList();
       decrementCurrentRow();
       updateRow();

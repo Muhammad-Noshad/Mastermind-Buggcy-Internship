@@ -1,13 +1,7 @@
-import { checkGameOver } from "./game-over.js";
-import { code, userGuess, validation, emptyValidation, emptyUserGuess } from "./general.js";
+import { code, userGuess, validation } from "./general.js";
 
 // Validates player's guess
 export function validateGuess(){
-  // If there is something already in validation array
-  if(validation.length > 0){
-    emptyValidation();
-  }
-
   for(let x = 0; x < userGuess.length; x++){
     // If user's guessed color is present in code
     if(code.includes(userGuess[x])){
@@ -27,8 +21,6 @@ export function validateGuess(){
   }
 
   randomizeOrder();
-  checkGameOver();
-  emptyUserGuess();
 }
 
 // Randomizes the order of validation array

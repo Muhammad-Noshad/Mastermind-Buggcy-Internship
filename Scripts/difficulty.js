@@ -9,7 +9,7 @@ function initializeButtons(){
   if(JSON.parse(localStorage.getItem('allowDuplicates'))){  // If allowDuplicates is true, highlight the hard button
     addToClassList(difficultyButtons[1], 'btn-active');    
   }
-  else{ // If allowDuplicate is false or null, highlight the easy button
+  else{ // If allowDuplicate is false or undefined, highlight the easy button
     addToClassList(difficultyButtons[0], 'btn-active');
   }
 }
