@@ -7,7 +7,7 @@ export const colors = ['red', 'green', 'blue', 'yellow', 'brown', 'orange', 'bla
 export const code = new Array(4);
 
 // Color selected by user
-let selectedColor = '';
+export let selectedColor = '';
 
 // A function to set the selected color by the user
 export function setSelectedColor(color){
@@ -198,23 +198,28 @@ export function getAllowDuplicates(){
   return allowDuplicates;
 }
 
+// Tracks the number of circles filled in the active row
 let circlesFilled = 0;
 
+// Increments circlesFilled and toggles check button's availability
 export function incrementCirclesFilled(){
   circlesFilled++;
   toggleCheckButton();
 }
 
+// Decrements circlesFilled
 export function decrementCirclesFilled(){
   circlesFilled--;
   toggleCheckButton();
 }
 
+// Resets circles filled to zero and toggles check button's availability 
 export function resetCirclesFilled(){
   circlesFilled = 0;
   toggleCheckButton();
 }
 
+// Returns value of circles filled
 export function getCirclesFilled(){
   return circlesFilled;
 }

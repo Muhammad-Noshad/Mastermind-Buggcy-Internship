@@ -72,14 +72,18 @@ function updateRow(){
 
 // Checking if the check button is pressed
 checkButton.addEventListener('click', () => {
-  if(!checkButton.classList.contains('disabled')){
+  // If the check button is not disabled, then check guess validity
+  if(!checkButton.classList.contains('disabled')){ 
+    // Assume the guess is invalid
     let isGuessValid = false;
     
+    // If all the circles are filled, the guess is valid
     if(getCirclesFilled() === 4){
       isGuessValid = true;
     }
 
-    if(isGuessValid){ // If the guess is valid (all circles of active row are filled)
+    if(isGuessValid){ // If the guess is valid
+      // Initialize the userGuess array
       for(const child of guessSectionRow[getCurrentRow()].children){
         userGuess.push(child.classList[child.classList.length - 1]);
       }
@@ -114,11 +118,12 @@ function showValidation(){
   }
 }
 
+// A function to enable/disable check button
 export function toggleCheckButton(){
-  if(getCirclesFilled() === 4){
+  if(getCirclesFilled() === 4){   // If all circles in the active row are filled, enable the button
     removeFromClassList(checkButton, 'disabled');
   }
-  else{
+  else{   // // If all circles in the active row are not filled, disable the button 
     addToClassList(checkButton, 'disabled');
   }
 }
